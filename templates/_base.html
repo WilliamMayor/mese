@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>MeSe - Your Personal MEdia SErver</title>
+		<link rel="stylesheet" href="http://localhost/styles.css" type="text/css" media="screen" charset="utf-8">
+		<script type="text/javascript" src="http://localhost/js/jquery-1.9.0.min.js"></script>
+  		<script type="text/javascript" src="http://localhost/js/script.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="header_contents">
+				<div class="links">
+					<a href="/">Home</a> | 
+					<a href="/music/">Music</a> | 
+					<a href="/tv/">TV Shows</a> | 
+					<a href="/movies/">Movies</a> |
+					<a href="/settings/">Settings</a>
+				</div>
+				{% include "_logo.html" %}
+			</div>
+		</div>
+		<div id="container">
+			{% block content %}{% endblock %}
+        </div>
+        <div id="player">
+        	<div class="media">
+        		<audio id="audio" src="" controls preload='auto'>
+        			Your browser does not support the <code>audio</code> element.
+        		</audio>
+        		<video id="video" src="" controls preload='auto'>
+        			Your browser does not support the <code>video</code> element.
+        		</video>
+        		<div class="details">
+        			<ul>
+    				{% for name, detail in playlist[0].details.iteritems() %}
+    					<li>{{ name }}: {{ detail }}</li>
+    				{% endfor %}
+        			</ul>
+        		</div>
+        	</div>
+        	<div id="playlist">
+        		<div class="container">
+		        	<table>
+		        		<tbody>
+	        			{% for item in playlist %}
+	        				<tr>
+	        					<td class="index"><span>{{ loop.index }}</span></td>
+	        					<td><a href="{{ item.href }}" class="action {{ item.type }}">{{ item.title }}</a></td>
+	        					<td><img src="http://localhost/images/{{ item.type }}.png" /></td>
+	        				</tr>
+	        			{% endfor %}
+		        		</tbody>
+		        	</table>
+		        </div>
+	        </div>
+        </div>
+        <div id="footer">
+            <div id="footer_contents">
+                {% include "_logo.html" %}
+                <a href="/">Home</a> | 
+                <a href="/music/">Music</a> | 
+                <a href="/tv/">TV Shows</a> | 
+                <a href="/movies/">Movies</a> |
+                <a href="/settings/">Settings</a>
+            </div>
+        </div>
+    </body>
+</html>
