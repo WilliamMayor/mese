@@ -34,18 +34,9 @@ def database_clear():
     return jsonify(result='database cleared')
 
 
-@api.route('/user/list/')
-def user_list():
-    with sqlite3.connect('mese.db') as connection:
-        connection.row_factory = sqlite3.Row
-        cursor = connection.cursor()
-        cursor.execute('SELECT id, name FROM User')
-        return jsonify(result=[dict_from_row(row) for row in cursor.fetchall()])
-
-
-@api.route('/user/new/')
+@api.route('/users/', methods=['POST'])
 @needs_user_input
-def user_new():
+def user_create():
     name = request.args.get('name')
     with sqlite3.connect('mese.db') as connection:
         cursor = connection.cursor()
@@ -53,8 +44,17 @@ def user_new():
         return jsonify(result='user created')
 
 
-@api.route('/user/<_id>/')
-def user_get(_id):
+@api.route('/users/')
+def user_retrieve_all():
+    with sqlite3.connect('mese.db') as connection:
+        connection.row_factory = sqlite3.Row
+        cursor = connection.cursor()
+        cursor.execute('SELECT id, name FROM User')
+        return jsonify(result=[dict_from_row(row) for row in cursor.fetchall()])
+
+
+@api.route('/users/<_id>/')
+def user_retrieve(_id):
     with sqlite3.connect('mese.db') as connection:
         connection.row_factory = sqlite3.Row
         cursor = connection.cursor()
@@ -62,7 +62,12 @@ def user_get(_id):
         return jsonify(result=dict_from_row(cursor.fetchone()))
 
 
-@api.route('/user/<_id>/delete/')
+@api.route('/users/<_id>/', methods=['PUT'])
+def user_update(_id):
+    pass
+
+
+@api.route('/users/<_id>/', methods=['DELETE'])
 def user_delete(_id):
     with sqlite3.connect('mese.db') as connection:
         cursor = connection.cursor()
