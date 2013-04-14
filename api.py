@@ -16,7 +16,7 @@ def needs_user_input(fn):
         try:
             return fn(*args, **kwargs)
         except sqlite3.IntegrityError:
-            return jsonify(error='missing or invalid data')
+            return jsonify(error='missing or invalid data'), 400
     return catch_missing
 
 
@@ -26,7 +26,7 @@ def database_clear():
         os.remove('mese.db')
     except:
         pass
-    with open('mese.schema', 'r') as schema:
+    with open('schema.sql', 'r') as schema:
         sql = schema.read()
         with sqlite3.connect('mese.db') as connection:
             cursor = connection.cursor()
@@ -63,8 +63,14 @@ def user_retrieve(_id):
 
 
 @api.route('/users/<_id>/', methods=['PUT'])
+@needs_user_input
 def user_update(_id):
-    pass
+    name = request.args.get('name')
+    with sqlite3.connect('mese.db') as connection:
+        connection.row_factory = sqlite3.Row
+        cursor = connection.cursor()
+        cursor.execute('UPDATE User SET name = ? WHERE id = ?', (name, _id, ))
+        return jsonify(result=dict_from_row(cursor.fetchone()))
 
 
 @api.route('/users/<_id>/', methods=['DELETE'])

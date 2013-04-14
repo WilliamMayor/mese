@@ -1,0 +1,86 @@
+#player {
+	padding: 5px;
+
+	div.media {
+		position: absolute;
+		height: 200px;
+
+		#audio, #video {
+			width: 300px;
+			position: absolute;
+			bottom: 0px;
+			left: 25px;
+		}
+	}
+
+	div.details {
+		position: relative;
+		top: 200px;
+		margin-top: 10px;
+		overflow: hidden;
+
+		ul {
+			list-style-type: none;
+		}
+	}
+
+	#playlist {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+		height: 50%;
+
+		div.container {
+			border: 1px solid $colour_border;
+			overflow-y: auto;
+			overflow-x: hidden;
+			height: 100%;
+			background-color: white;
+
+			&::-webkit-scrollbar { 
+	    		display: none; 
+			}
+
+			table {
+				width: 100%;
+				
+				border-spacing: 0px;
+
+				tr:nth-child(even) {
+					background-color: $colour_background;
+				}
+
+				td {
+					padding-left: 5px;
+				}
+
+				td.index {
+					padding-left: 2px;
+					min-width: 20px;
+					text-align: right;
+					border-right: 1px solid $colour_border;
+				}
+
+				td.playing {
+					background: url('http://localhost/images/listening.png') no-repeat center;
+
+					span {
+						display: none;
+					}
+				}
+
+				img {
+					margin-bottom: -3px;
+				}
+
+				a {
+					display: inline-block;
+					width: 100%;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+}

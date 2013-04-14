@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "Advent Pro";
+  src: url("http://localhost/fonts/Advent_Pro/AdventPro-Regular.ttf"); }
+
+@font-face {
+  font-family: Chewy;
+  src: url("http://localhost/fonts/Chewy/Chewy.ttf"); }
+
+@font-face {
+  font-family: Oxygen;
+  src: url("http://localhost/fonts/Oxygen/Oxygen-Regular.ttf"); }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Oxygen, sans-serif; }
+
+a {
+  color: inherit; }
+  a:hover {
+    text-decoration: none;
+    color: #2a7fd3; }
+
+#header {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #cccccc; }
+  #header #header_contents .links {
+    margin: 10px 0 0 10px;
+    font-family: 'Advent Pro', sans-serif; }
+    #header #header_contents .links a {
+      position: relative;
+      text-decoration: none;
+      padding: 0px 3px; }
+  #header #header_contents .logo {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 5em; }
+
+#container {
+  height: 100%;
+  width: 100%;
+  margin-right: 350px;
+  overflow: auto;
+  padding-top: 102px;
+  padding-bottom: 32px; }
+
+#player {
+  width: 350px;
+  position: absolute;
+  top: 101px;
+  right: 0px;
+  bottom: 31px;
+  overflow: hidden;
+  background-color: #eeeeee;
+  border-left: 1px solid #cccccc; }
+
+#footer {
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-color: #eeeeee;
+  border-top: 1px solid #cccccc; }
+  #footer #footer_contents {
+    text-align: center;
+    margin-top: 7px;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 0.7em; }
+    #footer #footer_contents a {
+      text-decoration: none;
+      margin: 0 5px; }
+    #footer #footer_contents .logo {
+      position: absolute;
+      left: 10px;
+      top: 1px;
+      font-size: 2em; }
+
+div.logo {
+  font-family: 'Chewy', cursive; }
+  div.logo a {
+    text-decoration: none;
+    color: inherit; }
+    div.logo a:hover {
+      text-decoration: none !important; }
+      div.logo a:hover span {
+        color: #2a7fd3; }
+
+#player {
+  padding: 5px; }
+  #player div.media {
+    position: absolute;
+    height: 200px; }
+    #player div.media #audio, #player div.media #video {
+      width: 300px;
+      position: absolute;
+      bottom: 0px;
+      left: 25px; }
+  #player div.details {
+    position: relative;
+    top: 200px;
+    margin-top: 10px;
+    overflow: hidden; }
+    #player div.details ul {
+      list-style-type: none; }
+  #player #playlist {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50%; }
+    #player #playlist div.container {
+      border: 1px solid #cccccc;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+      background-color: white; }
+      #player #playlist div.container::-webkit-scrollbar {
+        display: none; }
+      #player #playlist div.container table {
+        width: 100%;
+        border-spacing: 0px; }
+        #player #playlist div.container table tr:nth-child(even) {
+          background-color: #eeeeee; }
+        #player #playlist div.container table td {
+          padding-left: 5px; }
+        #player #playlist div.container table td.index {
+          padding-left: 2px;
+          min-width: 20px;
+          text-align: right;
+          border-right: 1px solid #cccccc; }
+        #player #playlist div.container table td.playing {
+          background: url("http://localhost/images/listening.png") no-repeat center; }
+          #player #playlist div.container table td.playing span {
+            display: none; }
+        #player #playlist div.container table img {
+          margin-bottom: -3px; }
+        #player #playlist div.container table a {
+          display: inline-block;
+          width: 100%;
+          text-decoration: none; }

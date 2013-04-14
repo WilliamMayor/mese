@@ -1,0 +1,98 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Oxygen, sans-serif;
+}
+a {
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+        color: $colour_highlight;
+    }
+}
+#header {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: $colour_background;
+    border-bottom: 1px solid $colour_border;
+    #header_contents {
+        .links {
+            margin: 10px 0 0 10px;
+            font-family: 'Advent Pro', sans-serif;
+            a {
+                position: relative;
+                text-decoration: none;
+                padding: 0px 3px;
+            }
+        }
+        .logo {
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            font-size: 5em;
+        }
+    }
+}
+#container {
+    height: 100%;
+    width: 100%;
+    margin-right: $player_width;
+    overflow: auto;
+    padding-top: 102px;
+    padding-bottom: 32px;
+}
+#player {
+    width: $player_width;
+    position: absolute;
+    top: 101px;
+    right: 0px;
+    bottom: 31px;
+    overflow: hidden;
+    background-color: $colour_background;
+    border-left: 1px solid $colour_border;
+}
+#footer {
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: $colour_background;
+    border-top: 1px solid $colour_border;
+    #footer_contents {
+        text-align: center;
+        margin-top: 7px;
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+        font-size: 0.7em;
+        a {
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .logo {
+            position: absolute;
+            left: 10px;
+            top: 1px;
+            font-size: 2em;
+        }
+    }
+}
+div.logo {
+    font-family: 'Chewy', cursive;
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            text-decoration: none !important;
+            span {
+                color: $colour_highlight;
+            }
+        }
+    }
+}
